@@ -1,0 +1,340 @@
+{
+  "domain": "tabular",
+  "models": [
+    "v4flash"
+  ],
+  "per_model": {
+    "v4flash": {
+      "model": "v4flash",
+      "n_records": 46,
+      "by_property": {
+        "column_dtype": {
+          "n": 10,
+          "accuracy": {
+            "mean": 1.0,
+            "ci_lo_95": 1.0,
+            "ci_hi_95": 1.0,
+            "n": 10
+          },
+          "parse_success_rate": 1.0,
+          "reasoning_truncation_rate": 0.0,
+          "confusion_matrix": {
+            "numeric": {
+              "numeric": 5,
+              "categorical": 0,
+              "datetime": 0
+            },
+            "categorical": {
+              "numeric": 0,
+              "categorical": 2,
+              "datetime": 0
+            },
+            "datetime": {
+              "numeric": 0,
+              "categorical": 0,
+              "datetime": 3
+            }
+          },
+          "by_tier": {
+            "simple": {
+              "mean": 1.0,
+              "ci_lo_95": 1.0,
+              "ci_hi_95": 1.0,
+              "n": 10
+            },
+            "medium": null,
+            "hard": null
+          }
+        },
+        "correlation": {
+          "n": 5,
+          "accuracy": {
+            "mean": 0.2,
+            "ci_lo_95": 0.0,
+            "ci_hi_95": 0.6,
+            "n": 5
+          },
+          "parse_success_rate": 1.0,
+          "reasoning_truncation_rate": 0.0,
+          "tolerance_accuracy": {
+            "strict_1pct": {
+              "mean": 0.0,
+              "ci_lo_95": 0.0,
+              "ci_hi_95": 0.0,
+              "n": 5
+            },
+            "moderate_5pct": {
+              "mean": 0.2,
+              "ci_lo_95": 0.0,
+              "ci_hi_95": 0.6,
+              "n": 5
+            },
+            "lenient_10pct": {
+              "mean": 0.2,
+              "ci_lo_95": 0.0,
+              "ci_hi_95": 0.6,
+              "n": 5
+            }
+          },
+          "relative_error": {
+            "median": 0.8269649574341714,
+            "p90": 0.9403314917127072,
+            "n": 5
+          },
+          "by_tier": {
+            "simple": {
+              "mean": 0.2,
+              "ci_lo_95": 0.0,
+              "ci_hi_95": 0.6,
+              "n": 5
+            },
+            "medium": null,
+            "hard": null
+          }
+        },
+        "func_dependency": {
+          "n": 5,
+          "accuracy": {
+            "mean": 0.2,
+            "ci_lo_95": 0.0,
+            "ci_hi_95": 0.6,
+            "n": 5
+          },
+          "parse_success_rate": 1.0,
+          "reasoning_truncation_rate": 0.0,
+          "confusion_matrix": {
+            "tp": 1,
+            "fp": 0,
+            "fn": 4,
+            "tn": 0
+          },
+          "precision": 1.0,
+          "recall": 0.2,
+          "base_rate_true": 1.0,
+          "by_tier": {
+            "simple": {
+              "mean": 0.2,
+              "ci_lo_95": 0.0,
+              "ci_hi_95": 0.6,
+              "n": 5
+            },
+            "medium": null,
+            "hard": null
+          }
+        },
+        "has_outlier": {
+          "n": 6,
+          "accuracy": {
+            "mean": 1.0,
+            "ci_lo_95": 1.0,
+            "ci_hi_95": 1.0,
+            "n": 6
+          },
+          "parse_success_rate": 1.0,
+          "reasoning_truncation_rate": 0.0,
+          "confusion_matrix": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "tn": 6
+          },
+          "precision": null,
+          "recall": null,
+          "base_rate_true": 0.0,
+          "by_tier": {
+            "simple": {
+              "mean": 1.0,
+              "ci_lo_95": 1.0,
+              "ci_hi_95": 1.0,
+              "n": 6
+            },
+            "medium": null,
+            "hard": null
+          }
+        },
+        "is_monotonic": {
+          "n": 5,
+          "accuracy": {
+            "mean": 1.0,
+            "ci_lo_95": 1.0,
+            "ci_hi_95": 1.0,
+            "n": 5
+          },
+          "parse_success_rate": 1.0,
+          "reasoning_truncation_rate": 0.0,
+          "confusion_matrix": {
+            "tp": 0,
+            "fp": 0,
+            "fn": 0,
+            "tn": 5
+          },
+          "precision": null,
+          "recall": null,
+          "base_rate_true": 0.0,
+          "by_tier": {
+            "simple": {
+              "mean": 1.0,
+              "ci_lo_95": 1.0,
+              "ci_hi_95": 1.0,
+              "n": 5
+            },
+            "medium": null,
+            "hard": null
+          }
+        },
+        "null_count": {
+          "n": 5,
+          "accuracy": {
+            "mean": 0.8,
+            "ci_lo_95": 0.4,
+            "ci_hi_95": 1.0,
+            "n": 5
+          },
+          "parse_success_rate": 1.0,
+          "reasoning_truncation_rate": 0.0,
+          "tolerance_accuracy": {
+            "exact": {
+              "mean": 0.8,
+              "ci_lo_95": 0.4,
+              "ci_hi_95": 1.0,
+              "n": 5
+            }
+          },
+          "by_tier": {
+            "simple": {
+              "mean": 0.8,
+              "ci_lo_95": 0.4,
+              "ci_hi_95": 1.0,
+              "n": 5
+            },
+            "medium": null,
+            "hard": null
+          }
+        },
+        "row_count": {
+          "n": 5,
+          "accuracy": {
+            "mean": 1.0,
+            "ci_lo_95": 1.0,
+            "ci_hi_95": 1.0,
+            "n": 5
+          },
+          "parse_success_rate": 1.0,
+          "reasoning_truncation_rate": 0.0,
+          "tolerance_accuracy": {
+            "exact": {
+              "mean": 1.0,
+              "ci_lo_95": 1.0,
+              "ci_hi_95": 1.0,
+              "n": 5
+            }
+          },
+          "by_tier": {
+            "simple": {
+              "mean": 1.0,
+              "ci_lo_95": 1.0,
+              "ci_hi_95": 1.0,
+              "n": 5
+            },
+            "medium": null,
+            "hard": null
+          }
+        },
+        "skewness": {
+          "n": 5,
+          "accuracy": {
+            "mean": 0.0,
+            "ci_lo_95": 0.0,
+            "ci_hi_95": 0.0,
+            "n": 5
+          },
+          "parse_success_rate": 1.0,
+          "reasoning_truncation_rate": 0.0,
+          "tolerance_accuracy": {
+            "strict_1pct": {
+              "mean": 0.0,
+              "ci_lo_95": 0.0,
+              "ci_hi_95": 0.0,
+              "n": 5
+            },
+            "moderate_5pct": {
+              "mean": 0.0,
+              "ci_lo_95": 0.0,
+              "ci_hi_95": 0.0,
+              "n": 5
+            },
+            "lenient_10pct": {
+              "mean": 0.0,
+              "ci_lo_95": 0.0,
+              "ci_hi_95": 0.0,
+              "n": 5
+            }
+          },
+          "relative_error": {
+            "median": 1.122864848666467,
+            "p90": 1.2644441456196118,
+            "n": 5
+          },
+          "by_tier": {
+            "simple": {
+              "mean": 0.0,
+              "ci_lo_95": 0.0,
+              "ci_hi_95": 0.0,
+              "n": 5
+            },
+            "medium": null,
+            "hard": null
+          }
+        }
+      },
+      "by_locality": {
+        "local": {
+          "mean": 0.95,
+          "ci_lo_95": 0.85,
+          "ci_hi_95": 1.0,
+          "n": 20
+        },
+        "global": {
+          "mean": 0.5,
+          "ci_lo_95": 0.3076923076923077,
+          "ci_hi_95": 0.6923076923076923,
+          "n": 26
+        }
+      },
+      "local_global_gap": {
+        "local_mean_accuracy": 0.95,
+        "global_mean_accuracy": 0.5,
+        "gap_pp": 44.99999999999999,
+        "bootstrap_test": {
+          "effect_size_pp": 44.99999999999999,
+          "p_value": 0.0,
+          "n_a": 20,
+          "n_b": 26
+        }
+      },
+      "complexity_gradient": {},
+      "overall_accuracy": {
+        "mean": 0.6956521739130435,
+        "ci_lo_95": 0.5652173913043478,
+        "ci_hi_95": 0.8260869565217391,
+        "n": 46
+      },
+      "overall_parse_success_rate": 1.0,
+      "decision_rule_flags": {
+        "global_properties_below_70pct_on_hard": [],
+        "local_accuracy_above_85pct": true,
+        "reads_as_implicit_structure_bottleneck": false,
+        "all_properties_above_85pct_on_hard": false,
+        "max_parse_failure_rate": 0.0,
+        "fix_harness_flag": false,
+        "note": "PDF Section 9's rule requires 2-of-3 domains; only the tabular domain exists here, so this is a single-domain reading, not the full decision."
+      }
+    }
+  },
+  "cross_model_consistency": {
+    "note": "requires >= 2 models with results",
+    "models_available": [
+      "v4flash"
+    ]
+  }
+}

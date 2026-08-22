@@ -1,0 +1,122 @@
+=== table_simple_synthetic_001 (tier=simple, source=synthetic, 9 rows x 4 cols) ===
+col_A,col_B,col_C,col_D
+cat_5,cat_1,,-72.51
+cat_3,cat_1,-42.65,-101.59
+cat_6,cat_3,-44.76,-105.81
+cat_5,cat_2,-52.53,-121.35
+cat_1,cat_3,-22.72,-61.73
+cat_7,cat_1,-44.29,-104.87
+cat_5,cat_1,-48.57,-113.43
+cat_6,cat_2,-47.38,-111.05
+cat_1,cat_1,-33.53,-83.35
+
+queries (8):
+  row_count: 9
+  null_count: 1
+  column_dtype__col_D: numeric
+  column_dtype__col_A: categorical
+  is_monotonic__col_C: False
+  has_outlier__col_D: False
+  skewness__col_D: 0.8068
+  func_dependency__col_C__col_D: True
+
+=== table_medium_synthetic_001 (tier=medium, source=synthetic, 21 rows x 9 cols) ===
+col_A,col_B,col_C,col_D,col_E,col_F,col_G,col_H,col_I
+25.56,cat_5,206.09,cat_3,cat_7,cat_2,cat_3,-39.82,cat_6
+20.33,cat_2,250.45,cat_1,cat_5,cat_2,cat_2,-32.33,cat_7
+14.16,cat_2,153.83,cat_3,cat_6,cat_2,cat_2,-26.25,cat_3
+8.43,cat_1,201.55,cat_1,cat_4,cat_4,cat_2,-23.80,cat_4
+6.35,cat_4,280.92,cat_1,cat_7,cat_4,cat_3,-16.91,cat_6
+5.38,cat_1,449.45,cat_3,cat_4,cat_3,cat_2,-15.54,cat_4
+0.73,cat_3,451.32,cat_1,cat_3,cat_2,cat_1,-11.98,cat_3
+-1.78,cat_1,445.97,cat_1,cat_5,cat_2,cat_2,-9.37,cat_1
+-3.47,cat_7,266.86,cat_3,cat_5,cat_4,cat_2,-2.85,cat_4
+-3.59,cat_1,156.67,cat_1,cat_2,cat_4,cat_4,2.34,cat_6
+-8.75,cat_4,234.84,cat_3,cat_3,cat_2,cat_1,8.67,cat_5
+-12.36,cat_2,207.21,cat_3,cat_3,cat_4,cat_1,10.94,cat_2
+-13.91,cat_1,768.52,cat_1,cat_7,cat_2,cat_3,11.67,cat_4
+-19.08,cat_2,161.36,cat_2,cat_3,cat_4,cat_1,17.93,cat_4
+-25.20,cat_1,276.55,cat_1,cat_6,cat_4,cat_2,21.91,cat_3
+-30.79,cat_1,-123.43,cat_3,cat_4,cat_4,cat_2,27.83,cat_6
+-33.47,cat_4,188.75,cat_1,cat_6,cat_1,cat_2,35.25,cat_4
+-37.90,cat_5,361.16,cat_1,cat_2,cat_2,cat_4,37.98,cat_4
+-43.76,cat_1,245.63,cat_2,cat_7,cat_1,cat_3,41.42,cat_7
+-47.18,cat_3,404.85,cat_3,cat_4,cat_4,cat_2,48.78,cat_4
+-47.81,cat_5,208.26,cat_3,cat_3,cat_2,cat_1,49.67,cat_5
+
+queries (10):
+  row_count: 21
+  null_count: 0
+  column_dtype__col_D: categorical
+  column_dtype__col_H: numeric
+  correlation__col_H__col_C: -0.0516
+  is_monotonic__col_H: True
+  is_monotonic__col_A: True
+  has_outlier__col_C: False
+  has_outlier__col_H: False
+  skewness__col_H: 0.0409
+
+=== table_hard_synthetic_001 (tier=hard, source=synthetic, 50 rows x 9 cols) ===
+col_A,col_B,col_C,col_D,col_E,col_F,col_G,col_H,col_I
+cat_2,149.32,6,-83,cat_5,cat_1,cat_1,cat_2,cat_8
+cat_3,141.96,8,-63,cat_2,cat_1,cat_3,cat_3,cat_2
+cat_2,136.08,14,-80,cat_5,cat_1,cat_2,cat_2,cat_1
+cat_1,135.38,18,-74,cat_1,cat_6,cat_1,cat_1,cat_4
+cat_1,128.87,20,-95,cat_1,cat_4,cat_4,cat_1,cat_6
+cat_1,127.47,22,-105,cat_5,cat_4,cat_1,cat_1,cat_1
+cat_2,125.29,27,-96,cat_5,cat_2,cat_3,cat_3,cat_3
+cat_3,121.97,30,-90,cat_4,cat_6,cat_2,cat_3,cat_5
+cat_4,114.01,36,-99,cat_6,cat_3,cat_3,cat_3,cat_2
+cat_1,110.39,37,-104,cat_4,cat_4,cat_1,cat_3,cat_6
+cat_1,103.95,41,-84,cat_5,cat_4,cat_1,cat_3,cat_2
+cat_2,103.74,49,-104,cat_4,cat_4,cat_3,cat_4,cat_8
+cat_1,97.44,54,-111,cat_7,cat_4,cat_3,cat_3,cat_3
+cat_3,93.83,57,-106,cat_5,cat_1,cat_1,cat_1,cat_5
+cat_1,86.29,59,-93,cat_3,cat_5,cat_2,cat_1,cat_4
+cat_4,81.49,64,-104,cat_7,cat_2,cat_3,cat_3,cat_2
+cat_3,80.02,66,-93,cat_7,cat_6,cat_1,cat_3,cat_4
+cat_2,73.01,67,-81,cat_1,cat_2,cat_3,cat_2,cat_8
+cat_4,71.90,72,-82,cat_6,cat_1,cat_3,cat_1,cat_4
+cat_3,63.97,78,-99,cat_7,cat_2,cat_3,cat_3,cat_1
+cat_4,58.25,82,-108,cat_2,cat_3,cat_3,cat_2,cat_6
+cat_1,55.02,89,-98,cat_8,cat_2,cat_2,cat_1,cat_2
+cat_4,50.84,92,-80,cat_4,cat_5,cat_4,cat_3,cat_4
+cat_1,46.99,98,-77,cat_7,cat_4,cat_3,cat_3,cat_4
+cat_2,46.77,105,-85,cat_8,cat_1,cat_2,cat_1,cat_4
+cat_4,38.94,106,-73,cat_8,cat_3,cat_3,cat_2,cat_1
+cat_2,32.83,111,-65,cat_5,cat_5,cat_3,cat_3,cat_2
+cat_1,32.26,115,-97,cat_7,cat_6,cat_1,cat_2,cat_1
+cat_1,29.09,117,-69,cat_3,cat_2,cat_4,cat_1,cat_4
+cat_1,24.90,120,-93,cat_4,cat_6,cat_4,cat_3,cat_5
+cat_2,20.59,126,-75,cat_8,cat_1,cat_2,cat_3,cat_6
+cat_2,12.93,128,-80,cat_4,cat_4,cat_3,cat_1,cat_1
+cat_2,8.86,130,-118,cat_7,cat_4,cat_3,cat_2,cat_1
+cat_3,1.07,131,-103,cat_1,cat_2,cat_4,cat_3,cat_6
+cat_1,-1.97,138,-107,cat_3,cat_1,cat_3,cat_2,cat_4
+cat_3,-2.86,139,-115,cat_3,cat_4,cat_1,cat_2,cat_8
+cat_2,-8.56,147,-77,cat_5,cat_2,cat_3,cat_2,cat_2
+cat_3,-10.06,148,-61,cat_2,cat_1,cat_1,cat_2,cat_1
+cat_3,-10.98,154,-93,cat_4,cat_1,cat_3,cat_3,cat_3
+cat_4,-14.16,158,-78,cat_8,cat_4,cat_3,cat_2,cat_5
+cat_1,-19.10,164,-69,cat_7,cat_1,cat_3,cat_4,cat_4
+cat_2,-25.24,169,-87,cat_7,cat_3,cat_1,cat_2,cat_1
+cat_4,-28.51,175,-90,cat_3,cat_6,cat_3,cat_3,cat_1
+cat_3,-32.35,182,-93,cat_4,cat_4,cat_3,cat_2,cat_6
+cat_1,-37.93,188,-82,cat_7,cat_3,cat_2,cat_3,cat_2
+cat_3,-45.00,193,-77,cat_1,cat_3,cat_1,cat_4,cat_6
+cat_3,-48.48,199,-83,cat_5,cat_1,cat_2,cat_2,cat_2
+cat_1,-54.89,200,-84,cat_8,cat_2,cat_4,cat_2,cat_3
+cat_3,-62.59,204,-90,cat_2,cat_1,cat_3,cat_4,cat_2
+cat_3,-65.02,210,-112,cat_8,cat_1,cat_3,cat_4,cat_8
+
+queries (10):
+  row_count: 50
+  null_count: 0
+  column_dtype__col_F: categorical
+  column_dtype__col_C: numeric
+  correlation__col_B__col_D: -0.0797
+  is_monotonic__col_B: True
+  is_monotonic__col_D: False
+  has_outlier__col_D: False
+  skewness__col_B: 0.0146
+  func_dependency__col_H__col_D: False
