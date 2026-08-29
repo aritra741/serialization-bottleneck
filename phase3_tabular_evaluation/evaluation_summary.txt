@@ -1,0 +1,90 @@
+Loading results for: ['gemini', 'gpt', 'llama_scout', 'qwen3', 'v4flash', 'v4pro_thinking']
+
+Wrote /Users/mansuba/Desktop/serialization tabular research/phase3_tabular_evaluation/evaluation_report.json
+
+=== v4flash ===
+  overall accuracy: 0.637 [0.620, 0.655]  n=2953
+  parse success rate: 1.000
+  local-global gap: 38.6pp (local=0.867, global=0.480, p=0.0000)
+  by property:
+    column_dtype       acc=0.992  n= 600  parse_ok=1.000
+    correlation        acc=0.039  n= 380  parse_ok=1.000
+    func_dependency    acc=0.363  n= 157  parse_ok=1.000
+    has_outlier        acc=0.786  n= 504  parse_ok=1.000
+    is_monotonic       acc=0.818  n= 451  parse_ok=1.000
+    null_count         acc=0.610  n= 300  parse_ok=1.000
+    row_count          acc=0.873  n= 300  parse_ok=1.000
+    skewness           acc=0.019  n= 261  parse_ok=1.000
+  [note] reads as an implicit-structure bottleneck: ['correlation', 'func_dependency', 'has_outlier', 'null_count', 'row_count', 'skewness'] below 70% on hard while local stays >85%
+
+=== qwen3 ===
+  overall accuracy: 0.504 [0.486, 0.522]  n=2953
+  parse success rate: 1.000
+  local-global gap: 45.4pp (local=0.773, global=0.319, p=0.0000)
+  by property:
+    column_dtype       acc=0.980  n= 600  parse_ok=1.000
+    correlation        acc=0.050  n= 380  parse_ok=1.000
+    func_dependency    acc=0.344  n= 157  parse_ok=1.000
+    has_outlier        acc=0.308  n= 504  parse_ok=1.000
+    is_monotonic       acc=0.732  n= 451  parse_ok=1.000
+    null_count         acc=0.603  n= 300  parse_ok=1.000
+    row_count          acc=0.530  n= 300  parse_ok=1.000
+    skewness           acc=0.008  n= 261  parse_ok=1.000
+
+=== llama_scout ===
+  overall accuracy: 0.528 [0.510, 0.546]  n=2953
+  parse success rate: 0.987
+  local-global gap: 24.1pp (local=0.671, global=0.430, p=0.0000)
+  by property:
+    column_dtype       acc=0.965  n= 600  parse_ok=0.990
+    correlation        acc=0.039  n= 380  parse_ok=0.987
+    func_dependency    acc=0.318  n= 157  parse_ok=0.994
+    has_outlier        acc=0.746  n= 504  parse_ok=0.988
+    is_monotonic       acc=0.676  n= 451  parse_ok=0.987
+    null_count         acc=0.580  n= 300  parse_ok=0.990
+    row_count          acc=0.173  n= 300  parse_ok=0.973
+    skewness           acc=0.027  n= 261  parse_ok=0.989
+
+=== gemini ===
+  overall accuracy: 0.525 [0.507, 0.542]  n=2953
+  parse success rate: 1.000
+  local-global gap: 54.4pp (local=0.848, global=0.303, p=0.0000)
+  by property:
+    column_dtype       acc=0.998  n= 600  parse_ok=1.000
+    correlation        acc=0.018  n= 380  parse_ok=1.000
+    func_dependency    acc=0.318  n= 157  parse_ok=1.000
+    has_outlier        acc=0.296  n= 504  parse_ok=1.000
+    is_monotonic       acc=0.714  n= 451  parse_ok=1.000
+    null_count         acc=0.663  n= 300  parse_ok=1.000
+    row_count          acc=0.730  n= 300  parse_ok=1.000
+    skewness           acc=0.015  n= 261  parse_ok=1.000
+
+=== gpt ===
+  overall accuracy: 0.559 [0.541, 0.577]  n=2953
+  parse success rate: 1.000
+  local-global gap: 34.0pp (local=0.761, global=0.420, p=0.0000)
+  by property:
+    column_dtype       acc=0.982  n= 600  parse_ok=1.000
+    correlation        acc=0.050  n= 380  parse_ok=1.000
+    func_dependency    acc=0.350  n= 157  parse_ok=1.000
+    has_outlier        acc=0.663  n= 504  parse_ok=1.000
+    is_monotonic       acc=0.716  n= 451  parse_ok=1.000
+    null_count         acc=0.683  n= 300  parse_ok=1.000
+    row_count          acc=0.397  n= 300  parse_ok=1.000
+    skewness           acc=0.023  n= 261  parse_ok=0.996
+
+=== v4pro_thinking ===
+  overall accuracy: 0.736 [0.701, 0.772]  n=588
+  parse success rate: 0.743
+  local-global gap: 42.4pp (local=0.988, global=0.563, p=0.0000)
+  by property:
+    column_dtype       acc=1.000  n= 120  parse_ok=1.000
+    correlation        acc=0.000  n=  71  parse_ok=0.000
+    func_dependency    acc=0.879  n=  33  parse_ok=1.000
+    has_outlier        acc=0.794  n= 102  parse_ok=0.794
+    is_monotonic       acc=0.989  n=  87  parse_ok=0.989
+    null_count         acc=0.950  n=  60  parse_ok=0.950
+    row_count          acc=1.000  n=  60  parse_ok=1.000
+    skewness           acc=0.000  n=  55  parse_ok=0.000
+  [!] parse failure rate exceeds 15% for at least one property -- fix harness before trusting these results
+  [note] reads as an implicit-structure bottleneck: ['correlation', 'has_outlier', 'skewness'] below 70% on hard while local stays >85%

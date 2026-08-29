@@ -1,16 +1,18 @@
-# Phase 1 — dataset generation (Geometry_Experiment1_Phase1.ipynb, Graph_Experiment1_Phase1.ipynb)
+# Phase 1 — dataset generation (Geometry_Experiment1_Phase1.ipynb, Graph_Experiment1_Phase1.ipynb,
+# phase1_tabular_dataset/dataset.py)
 jupyter>=1.0
 shapely>=2.0
 matplotlib>=3.7
 networkx>=3.2
+pandas>=2.0
 
-# Phase 2 — model runs (run_*_full.py)
+# Phase 2 — model runs (run_*_full.py, phase2_tabular_model_results/harness.py)
 openai>=1.30
 python-dotenv>=1.0
 tenacity>=8.2
 tqdm>=4.66
 
-# Phase 3 — evaluation (Geometry_Experiment1_Phase3.ipynb)
+# Phase 3 — evaluation (Geometry_Experiment1_Phase3.ipynb, phase3_tabular_evaluation/evaluate.py)
 # matplotlib is already listed above under Phase 1.
 numpy>=1.24
 scipy>=1.10

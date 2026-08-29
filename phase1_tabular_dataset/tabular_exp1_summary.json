@@ -1,0 +1,151 @@
+{
+  "total": 300,
+  "counts_by_tier_source": {
+    "simple": {
+      "synthetic": 100,
+      "real": 0
+    },
+    "medium": {
+      "synthetic": 100,
+      "real": 0
+    },
+    "hard": {
+      "synthetic": 100,
+      "real": 0
+    }
+  },
+  "distribution_by_tier": {
+    "simple": {
+      "n_rows": {
+        "min": 8,
+        "max": 15,
+        "mean": 11.47,
+        "median": 11.0,
+        "std": 2.1975213309544914
+      },
+      "n_cols": {
+        "min": 4,
+        "max": 6,
+        "mean": 5.01,
+        "median": 5.0,
+        "std": 0.8425556361451747
+      },
+      "n_queries": {
+        "min": 8,
+        "max": 10,
+        "mean": 9.73,
+        "median": 10.0,
+        "std": 0.5070502933634887
+      },
+      "csv_length": {
+        "min": 138,
+        "max": 642,
+        "mean": 330.6,
+        "median": 324.0,
+        "std": 89.69180564577792
+      },
+      "null_count": {
+        "min": 0,
+        "max": 4,
+        "mean": 1.09,
+        "median": 1.0,
+        "std": 1.1144056711987784
+      }
+    },
+    "medium": {
+      "n_rows": {
+        "min": 16,
+        "max": 30,
+        "mean": 22.96,
+        "median": 23.0,
+        "std": 4.3655927432595
+      },
+      "n_cols": {
+        "min": 6,
+        "max": 9,
+        "mean": 7.51,
+        "median": 8.0,
+        "std": 1.1532129031536198
+      },
+      "n_queries": {
+        "min": 9,
+        "max": 10,
+        "mean": 9.91,
+        "median": 10.0,
+        "std": 0.2861817604250837
+      },
+      "csv_length": {
+        "min": 492,
+        "max": 1596,
+        "mean": 948.53,
+        "median": 909.5,
+        "std": 237.98321180284967
+      },
+      "null_count": {
+        "min": 0,
+        "max": 11,
+        "mean": 3.2,
+        "median": 3.0,
+        "std": 3.111269837220809
+      }
+    },
+    "hard": {
+      "n_rows": {
+        "min": 31,
+        "max": 50,
+        "mean": 40.13,
+        "median": 41.0,
+        "std": 5.735250648402387
+      },
+      "n_cols": {
+        "min": 9,
+        "max": 12,
+        "mean": 10.64,
+        "median": 11.0,
+        "std": 1.0725670142233539
+      },
+      "n_queries": {
+        "min": 9,
+        "max": 10,
+        "mean": 9.89,
+        "median": 10.0,
+        "std": 0.31288975694324034
+      },
+      "csv_length": {
+        "min": 1369,
+        "max": 3474,
+        "mean": 2258.46,
+        "median": 2256.5,
+        "std": 477.83121329607593
+      },
+      "null_count": {
+        "min": 0,
+        "max": 28,
+        "mean": 5.99,
+        "median": 3.0,
+        "std": 7.156109278092391
+      }
+    }
+  },
+  "boolean_base_rates": {
+    "is_monotonic": {
+      "n": 451,
+      "true_rate": 0.31042128603104213
+    },
+    "has_outlier": {
+      "n": 504,
+      "true_rate": 0.21626984126984128
+    },
+    "func_dependency": {
+      "n": 157,
+      "true_rate": 0.6942675159235668
+    }
+  },
+  "total_queries": 2953,
+  "correlation_queries": {
+    "planted": 185,
+    "control": 195
+  },
+  "real_data_populated": false,
+  "random_seed": 42
+}

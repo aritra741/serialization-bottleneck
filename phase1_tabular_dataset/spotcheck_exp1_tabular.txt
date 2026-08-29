@@ -1,0 +1,170 @@
+======================================================================
+LEGEND -- how to read this file
+======================================================================
+This is a human-readable preview of a few sample tables from
+tabular_exp1_dataset.json -- one block per (tier, source) combination
+currently populated (real-data blocks are absent until
+real_data_sources/manifest.json exists; see that folder's README).
+The CSV shown under each header is exactly the text a model receives.
+Ground truth for every property below is always recomputed from that
+CSV after the fact -- never taken from what the generator originally
+planted -- so a "monotonic" column can still end up is_monotonic=False
+if something (e.g. an injected outlier) broke it afterward, and a
+"correlated" pair's ground-truth r is the realized sample correlation,
+not the target the generator aimed for.
+
+Properties (locality noted in brackets):
+  row_count        [local]  data rows, header not counted
+  column_dtype     [local]  {numeric, categorical, datetime}, inferred
+                             from one column's realized cell values
+  null_count       [local]  total blank cells, whole table
+  correlation      [global] Pearson r between two numeric columns.
+                             "[control]" = an unrelated pair asked
+                             alongside a real correlated one (when the
+                             table has one) to catch models that always
+                             guess "correlated" regardless of the data;
+                             "[planted]" = the pair that really was
+                             constructed to correlate
+  is_monotonic     [global] True iff every consecutive value in the
+                             column is non-decreasing, or every one is
+                             non-increasing. One out-of-order value
+                             (including an injected outlier) is enough
+                             to make this False even if the rest of the
+                             column climbs or falls steadily throughout
+  has_outlier      [global] True iff some value sits more than 3
+                             standard deviations from the column's own
+                             mean -- the threshold isn't a fixed number,
+                             it's computed fresh per column: take that
+                             column's own mean and (sample) standard
+                             deviation, then flag anything farther than
+                             mean +/- 3*std. A column with more spread
+                             naturally gets a wider "normal" range before
+                             something counts as extreme. When True
+                             below, the column's own mean/std, the
+                             resulting cutoff, and the exact row/value
+                             that crossed it are all shown
+  skewness         [global] Pearson's moment skewness of a numeric
+                             column (~0 symmetric, >0 long right tail,
+                             <0 long left tail) -- a rough direction
+                             hint is appended below, purely descriptive
+  func_dependency  [global] True iff every row sharing the same value
+                             in column A also shares the same value in
+                             column B (B is fully determined by A)
+
+"local" properties are readable from one cell/column in isolation;
+"global" ones require aggregating the whole column -- comparing model
+accuracy on these two groups is this project's central diagnostic (see
+phase3_tabular_evaluation/evaluate.py's local-global gap).
+======================================================================
+
+=== table_simple_synthetic_001 (tier=simple, source=synthetic, 9 rows x 4 cols) ===
+col_A,col_B,col_C,col_D
+QPT,GBF,112.08,51.22
+GWU,GBF,54.39,22.37
+QPT,SBF,91.61,40.98
+QPT,JJF,-27.19,-18.42
+FUC,SBF,154.19,72.27
+SLL,GBF,131.35,60.85
+QPT,GBF,97.58,43.97
+QPT,JJF,-74.25,-41.95
+FUC,CGR,5.84,-1.90
+
+queries (8):
+  row_count: 9
+  null_count: 0
+  column_dtype__col_B: categorical
+  column_dtype__col_C: numeric
+  is_monotonic__col_C: False
+  has_outlier__col_C: False
+  skewness__col_D: -0.6659  <- left-skewed (long tail toward low values)
+  func_dependency__col_C__col_D: True
+
+=== table_medium_synthetic_001 (tier=medium, source=synthetic, 29 rows x 9 cols) ===
+col_A,col_B,col_C,col_D,col_E,col_F,col_G,col_H,col_I
+UYC,-163.00,LCV,RQA,288,96.00,183.00,271.25,-97
+JFG,-150.00,ZZF,KTD,251,106.00,176.00,240.89,-90
+GLF,-162.00,EXN,KTD,239,120.00,175.00,195.45,-83
+MCZ,-163.00,LCV,KTD,155,122.00,174.00,238.52,-78
+GLF,-170.00,DRZ,ECL,321,-5.00,168.00,227.44,-76
+UYC,-142.00,VVP,KTD,294,154.00,167.00,111.67,-70
+STA,,EXN,SYB,261,66.00,166.00,193.61,-64
+XKV,-150.00,EXN,SYB,263,117.00,159.00,250.54,-62
+LKE,-164.00,VVP,ECL,309,136.00,151.00,133.10,-56
+LPA,-164.00,VQJ,KTD,188,118.00,146.00,220.34,-48
+UYC,-139.00,DRZ,KTD,239,79.00,141.00,175.66,-41
+JFG,-167.00,DRZ,LRJ,210,110.00,135.00,181.28,-34
+LPA,-167.00,VQJ,,364,112.00,,74.30,-29
+,-160.00,LCV,ECL,316,86.00,127.00,223.51,-24
+XKV,-154.00,EXN,RQA,154,152.00,124.00,275.16,-257
+UYC,,VQJ,SYB,190,101.00,122.00,87.60,-18
+GLF,-177.00,EXN,RQA,263,133.00,118.00,145.79,-12
+LPA,-169.00,VQJ,RQA,245,124.00,115.00,63.58,-11
+MCZ,-144.00,LCV,LRJ,200,167.00,111.00,58.65,-5
+GLF,-158.00,EXN,KTD,373,78.00,104.00,307.27,1
+LPA,-154.00,EXN,KTD,287,,101.00,178.77,6
+LKE,-162.00,EXN,LRJ,295,99.00,93.00,143.04,8
+GLF,-167.00,DRZ,ECL,234,114.00,90.00,122.16,9
+LPA,-139.00,LCV,RQA,308,99.00,83.00,304.77,11
+GLF,-161.00,ZZF,KTD,250,153.00,80.00,116.30,16
+MCZ,-164.00,ZER,KTD,255,92.00,77.00,,24
+GLF,-146.00,LCV,KTD,303,,69.00,124.46,27
+STA,-167.00,VQJ,SYB,184,112.00,65.00,69.23,30
+JFG,-166.00,VQJ,KTD,355,154.00,64.00,227.92,33
+
+queries (10):
+  row_count: 29
+  null_count: 8
+  column_dtype__col_C: categorical
+  column_dtype__col_I: numeric
+  correlation__col_G__col_H: 0.31  [control]
+  is_monotonic__col_I: False
+  is_monotonic__col_H: False
+  has_outlier__col_I: True  <- column mean=-34.14, std=58.40, so 3σ cutoff=175.21 either side of the mean -- row 15=-257 (|v-mean|=222.86 > 3σ=175.21)
+  has_outlier__col_H: False
+  skewness__col_B: 0.6321  <- right-skewed (long tail toward high values)
+
+=== table_hard_synthetic_001 (tier=hard, source=synthetic, 31 rows x 11 cols) ===
+col_A,col_B,col_C,col_D,col_E,col_F,col_G,col_H,col_I,col_J,col_K
+195,681.94,165.40,-370,2021-04-10,593,2.63,-231,-130,AZE,BRY
+110,662.60,222.59,-368,2021-04-19,429,-18.34,-241,-112,NPS,BRY
+276,547.63,320.59,-322,2021-04-25,289,14.33,-272,-81,JXV,BRY
+276,414.69,298.65,-293,2021-05-02,194,-52.99,-273,-130,AZE,JJU
+283,408.86,226.91,-324,2021-05-10,302,-65.88,-259,-110,DLS,JJU
+183,569.17,308.76,-328,2021-05-16,293,133.69,-246,-114,DLS,JJU
+334,545.16,236.80,-332,2021-05-24,530,-51.65,-250,-69,NPS,JJU
+244,599.50,317.54,-352,2021-05-31,540,111.82,-243,-113,JXV,BRY
+321,615.83,275.28,-443,2021-06-07,251,103.60,-251,-112,JXV,FLA
+278,485.38,264.71,-340,2021-06-12,504,-114.04,-232,-121,NPS,FLA
+224,691.32,276.52,-406,2021-06-19,490,158.08,-240,-104,DLS,BRY
+298,663.90,410.25,-319,2021-06-28,232,128.64,-248,-99,NPS,BRY
+268,645.12,242.83,-182,2021-07-03,386,130.79,-235,-119,JJB,FLA
+251,428.84,292.54,-362,2021-07-10,446,135.00,-269,-174,JXV,JJU
+289,484.53,320.54,-315,2021-07-18,421,62.25,-250,-99,JXV,BRY
+133,521.67,232.55,-315,2021-07-24,158,194.13,-248,-89,NPS,JJU
+362,613.04,200.67,-306,2021-08-01,417,-67.25,-242,-109,XVJ,JJU
+202,426.96,250.78,-378,2021-08-09,488,-101.54,-270,-100,DLS,JJU
+171,547.51,319.43,-389,2021-08-15,620,101.29,-252,-107,AZE,BRY
+323,591.62,263.86,-313,2021-08-21,304,-30.40,-244,-79,JXV,BRY
+173,619.26,269.45,-336,2021-08-29,322,70.49,-243,-102,JXV,FLA
+385,665.72,327.07,-330,2021-09-04,369,0.98,-235,-104,DLS,BRY
+226,488.28,240.43,-347,2021-09-13,439,-17.70,-240,-112,SNM,BRY
+191,571.98,276.63,-344,2021-09-18,412,161.99,-250,-113,NPS,FLA
+126,711.20,204.73,-356,2021-09-27,483,-79.16,-241,-100,JXV,BRY
+120,492.58,297.29,-315,2021-10-04,240,-64.10,-252,-90,JXV,BRY
+135,641.35,292.69,-335,2021-10-11,454,89.63,-247,-116,AZE,JJU
+110,499.41,321.25,-295,2021-10-16,294,126.47,-240,-102,JXV,BRY
+200,504.52,223.33,-341,2021-10-24,378,142.39,-250,-101,NPS,JJU
+195,487.61,271.43,-379,2021-10-31,638,-50.56,-245,-98,SNM,BRY
+228,695.37,216.61,-324,2021-11-06,202,158.41,-238,-133,JXV,BRY
+
+queries (10):
+  row_count: 31
+  null_count: 0
+  column_dtype__col_F: numeric
+  column_dtype__col_J: categorical
+  correlation__col_F__col_D: -0.3751  [planted]
+  correlation__col_H__col_G: 0.0991  [control]
+  is_monotonic__col_H: False
+  has_outlier__col_I: True  <- column mean=-107.81, std=18.94, so 3σ cutoff=56.82 either side of the mean -- row 14=-174 (|v-mean|=66.19 > 3σ=56.82)
+  has_outlier__col_B: False
+  skewness__col_A: 0.1387  <- ~symmetric
